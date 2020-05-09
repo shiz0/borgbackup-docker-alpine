@@ -1,0 +1,12 @@
+PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+SHELL=/bin/sh
+ENV=/container.env
+
+# min   hour    day     month   weekday	command
+#*/15	*       *       *       *       /root/backup.sh > /proc/1/fd/1 2>/proc/1/fd/2
+0	*       *       *       *       /root/backup.sh > /proc/1/fd/1 2>/proc/1/fd/2
+#0	3       *       *       *       /root/backup.sh > /proc/1/fd/1 2>/proc/1/fd/2
+#0  	3       *       *       6       /root/backup.sh > /proc/1/fd/1 2>/proc/1/fd/2
+#0	5       1       *       *       /root/backup.sh > /proc/1/fd/1 2>/proc/1/fd/2
+#-	-       -       -       -       /root/backup.sh > /proc/1/fd/1 2>/proc/1/fd/2
+
