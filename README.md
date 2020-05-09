@@ -1,6 +1,6 @@
 # borgbackup-docker-alpine
 Alpine based Docker image for borgbackup.\
-Comes with mariabackup to include database server dumps.\
+Comes with mariabackup to include database server dumps.
 
 Run with:
 ```
@@ -34,6 +34,6 @@ Add
 ```
 to the run command to overwrite the default file with yours.
 
-Database Backup function is cureently *still untested*!\
+Database Backup function is currently *still untested*!\
 The normal backup *should* work.\
 Always check your logs, attempt restores etc. to be sure it's working but don't blame me if it does not. ;-)
