@@ -1,0 +1,22 @@
+version: '3.3'
+services:
+    borgbackup-docker-alpine:
+        container_name: borgbackup_app
+        volumes:
+            - '/backupsource1:/backup/backuptarget1'
+            - '/backupsource2:/backup/backuptarget2'
+            - '/backupsource3:/backup/backuptarget3'
+            - '/opt/backup/secrets/known_hosts:/root/.ssh/known_hosts'
+            - '/opt/backup/secrets/id_rsa:/root/.ssh/id_rsa'
+            - '/opt/backup/secrets/borg_repo_pw:/root/borg_repo_pw'
+        environment:
+            - 'BORG_REPO=ssh://user@host:port/./app_repo'
+            - 'BORG_RSH=ssh -i /root/.ssh/id_rsa'
+            - BORG_PASSPHRASE=/root/borg_repo_pw
+            - LOCAL_FOLDER=/backup
+            - BACKUP_INTERVAL=hourly
+            - BACKUP_DB=N
+            - MARIADB_HOST=
+            - MARIADB_USER=
+            - MARIADB_PW=
+        image: 'shiz0/borgbackup-docker-alpine:latest'
