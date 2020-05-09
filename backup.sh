@@ -11,4 +11,4 @@ fi
 borg init --encryption=repokey
 
 # backup
-borg create --stats ::$(date +%Y-%M-%d_%H:%M:%S) /backup 
+borg create --stats ::$(date +%Y-%m-%d_%H:%M:%S) /backup 

@@ -1,29 +1,29 @@
 #!/bin/sh
 
-if [ "$BACKUP_INTERVAL" = "M" ]; then
-	ln -s /root/run_backup.sh /etc/periodic/15min/
+if [ "$BACKUP_INTERVAL" = "5min" ]; then
+        ln -s /root/backup.sh /etc/periodic/"$BACKUP_INTERVAL"/backup
 fi
-if [ "$BACKUP_INTERVAL" = "H" ]; then
-        ln -s /root/run_backup.sh /etc/periodic/hourly/
+if [ "$BACKUP_INTERVAL" = "15min" ]; then
+        ln -s /root/backup.sh /etc/periodic/"$BACKUP_INTERVAL"/backup
 fi
-if [ "$BACKUP_INTERVAL" = "D" ]; then
-        ln -s /root/run_backup.sh /etc/periodic/daily/
+if [ "$BACKUP_INTERVAL" = "hourly" ]; then
+        ln -s /root/backup.sh /etc/periodic/"$BACKUP_INTERVAL"/backup
 fi
-if [ "$BACKUP_INTERVAL" = "W" ]; then
-        ln -s /root/run_backup.sh /etc/periodic/weekly/
+if [ "$BACKUP_INTERVAL" = "daily" ]; then
+        ln -s /root/backup.sh /etc/periodic/"$BACKUP_INTERVAL"/backup
 fi
-if [ "$BACKUP_INTERVAL" = "M" ]; then
-        ln -s /root/run_backup.sh /etc/periodic/monthly/
+if [ "$BACKUP_INTERVAL" = "weekly" ]; then
+        ln -s /root/backup.sh /etc/periodic/"$BACKUP_INTERVAL"/backup
 fi
-if [ "$BACKUP_INTERVAL" = "C" ]; then
-	mkdir /etc/periodic/custom; \
-        ln -s /root/run_backup.sh /etc/periodic/custom/
+if [ "$BACKUP_INTERVAL" = "monthly" ]; then
+        ln -s /root/backup.sh /etc/periodic/"$BACKUP_INTERVAL"/backup
 fi
-
-#declare -p | grep -Ev 'BASHOPTS|BASH_VERSINFO|EUID|PPID|SHELLOPTS|UID' > /container.env
+if [ "$BACKUP_INTERVAL" = "custom" ]; then
+        ln -s /root/backup.sh /etc/periodic/"$BACKUP_INTERVAL"/backup
+fi
 
 export > /container.env
 
-exec "$@"
+chown -R root:root /root
 
-#/bin/sh -c 'crontab /etc/crontabs/root && crond -d 0 -f'
+exec "$@"
