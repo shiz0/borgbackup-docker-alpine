@@ -1,6 +1,6 @@
 # borgbackup-docker-alpine
-Alpine based Docker image for borgbackup
-Comes with mariabackup to include database server dumps
+Alpine based Docker image for borgbackup.\
+Comes with mariabackup to include database server dumps.\
 
 Run with:
 ```
@@ -26,14 +26,14 @@ docker run \
 ```
 Edit the name to your liking, adjust the rest according to your setup
 
-BACKUP_INTERVAL can be one of: 5min, 15min, hourly, daily, weekly, monthly or "custom"
-If "custom" is used, you will have to get the crontab, uncomment the last line and edit the schedule according to your needs
+BACKUP_INTERVAL can be one of: 5min, 15min, hourly, daily, weekly, monthly or "custom".\
+If "custom" is used, you will have to get the crontab, uncomment the last line and edit the schedule according to your needs.\
 Add
 ```
 -v /path/to/crontab:/root/crontab \
 ```
 to the run command to overwrite the default file with yours.
 
-Database Backup function is cureently *still untested*!
-The normal backup *should* work.
+Database Backup function is cureently *still untested*!\
+The normal backup *should* work.\
 Always check your logs, attempt restores etc. to be sure it's working but don't blame me if it does not. ;-)
