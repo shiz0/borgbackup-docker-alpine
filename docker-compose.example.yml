@@ -1,8 +1,11 @@
 version: '3.3'
 services:
     borgbackup-docker-alpine:
-        container_name: borgbackup_app
+        container_name: borgbackup_test
+        hostname: borgbackup_test
         volumes:
+            - '/var/run/docker.sock:/var/run/docker.sock'
+            - 'borgbackup_test_dbtemp:/backup/mariadb'
             - '/backupsource1:/backup/backuptarget1'
             - '/backupsource2:/backup/backuptarget2'
             - '/backupsource3:/backup/backuptarget3'
@@ -10,13 +13,14 @@ services:
             - '/opt/backup/secrets/id_rsa:/root/.ssh/id_rsa'
             - '/opt/backup/secrets/borg_repo_pw:/root/borg_repo_pw'
         environment:
-            - 'BORG_REPO=ssh://user@host:port/./app_repo'
+            - 'BORG_REPO=ssh://u231445-sub1@u231445.your-storagebox.de:23/./test'
             - 'BORG_RSH=ssh -i /root/.ssh/id_rsa'
             - BORG_PASSPHRASE=/root/borg_repo_pw
-            - LOCAL_FOLDER=/backup
-            - BACKUP_INTERVAL=hourly
-            - BACKUP_DB=N
-            - MARIADB_HOST=
-            - MARIADB_USER=
-            - MARIADB_PW=
+            - BACKUP_INTERVAL=5min
+            - MARIADB_CONTAINER=mariadb_test
+            - MARIADB_USER=root
+            - MARIADB_PW=secretadmin
         image: 'shiz0/borgbackup-docker-alpine:latest'
+
+volumes:
+  borgbackup_test_dbtemp:
