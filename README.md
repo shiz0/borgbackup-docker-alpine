@@ -6,7 +6,9 @@ Run with:
 ```
 docker run \
   -t -d \
-  --name borgbackup_app \
+  --name youruniquename \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v youruniquename_dbtemp:/backup/mariadb \
   -v /backupsource1:/backup/backuptarget1 \
   -v /backupsource2:/backup/backuptarget2 \
   -v /backupsource3:/backup/backuptarget3 \
@@ -34,6 +36,4 @@ Add
 ```
 to the run command to overwrite the default file with yours.
 
-Database Backup function is currently *still untested*!\
-The normal backup *should* work.\
 Always check your logs, attempt restores etc. to be sure it's working but don't blame me if it does not. ;-)
