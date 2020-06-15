@@ -1,11 +1,11 @@
 version: '3.3'
 services:
     borgbackup-docker-alpine:
-        container_name: borgbackup_test
-        hostname: borgbackup_test
+        container_name: youruniquename
+        hostname: youruniquename
         volumes:
             - '/var/run/docker.sock:/var/run/docker.sock'
-            - 'borgbackup_test_dbtemp:/backup/mariadb'
+            - 'youruniquename_dbtemp:/backup/mariadb'
             - '/backupsource1:/backup/backuptarget1'
             - '/backupsource2:/backup/backuptarget2'
             - '/backupsource3:/backup/backuptarget3'
