@@ -7,6 +7,7 @@ Run with:
 docker run \
   -t -d \
   --name youruniquename \
+  --hostname youruniquename \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v youruniquename_dbtemp:/backup/mariadb \
   -v /backupsource1:/backup/backuptarget1 \
