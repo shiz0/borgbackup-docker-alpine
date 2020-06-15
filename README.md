@@ -22,7 +22,7 @@ docker run \
   -e LOCAL_FOLDER=/backup \
   -e BACKUP_INTERVAL=hourly \
   -e BACKUP_DB=N \
-  -e MARIADB_HOST= \
+  -e MARIADB_CONTAINER= \
   -e MARIADB_USER= \
   -e MARIADB_PW= \
   shiz0/borgbackup-docker-alpine:latest
