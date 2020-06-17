@@ -1,5 +1,5 @@
 Current state: Basic tests successful. \
-ToDo: Implement "borg prune", do Readme, test a bit more \
+ToDo: Implement "borg prune", do Readme, test a bit more.
 
 
 # borgbackup-docker-alpine
