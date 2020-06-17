@@ -1,3 +1,7 @@
+Current state: Basic tests successful. \
+ToDo: Implement "borg prune", do Readme, test a bit more \
+
+
 # borgbackup-docker-alpine
 Alpine based Docker image for borgbackup.\
 Comes with mariabackup to include database server dumps.
