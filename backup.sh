@@ -25,7 +25,15 @@ fi
 
 
 # initialize repo
-borg init --encryption=repokey
+borg init $BORG_INIT_CMD
 
 # backup
-borg create --stats ::$(date +%Y-%m-%d_%H-%M-%S) /backup
+borg create $BORG_CREATE_CMD
+
+# clear dbtemp
+rm -rf /backup/mariadb/*
+
+# prune repo if set
+if [ -n "$BORG_PRUNE_CMD" ]; then
+	borg prune $BORG_PRUNE_CMD
+fi
