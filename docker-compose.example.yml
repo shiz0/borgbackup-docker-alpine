@@ -24,7 +24,7 @@ services:
             - BORG_INIT_CMD=--encryption=repokey
             - BORG_CREATE_CMD=--stats ::{now:%Y-%m-%d_%H-%M-%S} /backup
             - BORG_PRUNE_CMD=-n --list --force --keep-last 5
-        image: 'shiz0/borgbackup-docker-alpine:latest
+        image: shiz0/borgbackup-docker-alpine:latest
 
 volumes:
-  youruniquename_dbtemp:
+  <youruniquename>_dbtemp:
