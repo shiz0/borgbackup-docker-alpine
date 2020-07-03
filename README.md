@@ -17,8 +17,8 @@ docker run \
 -v /opt/backup/secrets/id_rsa:/root/.ssh/id_rsa \
 -v /opt/backup/secrets/borg_repo_pw:/root/borg_repo_pw \
 -v /opt/backup/secrets/mariadb_pw:/root/mariadb_pw \
---name <youruniquename> \
--h <youruniquename> \
+--name "<youruniquename>" \
+-h "<youruniquename>" \
 -e BORG_REPO=ssh://host:port/./<reponame> \
 -e BORG_RSH=ssh -i /root/.ssh/id_rsa \
 -e BORG_PASSPHRASE=/root/borg_repo_pw \
