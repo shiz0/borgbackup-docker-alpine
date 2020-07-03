@@ -1,6 +1,9 @@
 #!/bin/sh
 
-# backup database if set
+# set db password from file
+if [ -f /root/mariadb_pw ]; then
+        MARIADB_PW=$(cat /root/mariadb_pw)
+fi
 
 # get database conatiner's network
 DBNET=$(docker inspect --format='{{range .NetworkSettings.Networks}}{{println .NetworkID}}{{end}}' "$MARIADB_CONTAINER" | head -1)
