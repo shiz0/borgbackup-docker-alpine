@@ -1,5 +1,6 @@
 FROM alpine:latest
 
+RUN apk upgrade --no-cache
 RUN apk add --no-cache borgbackup
 RUN apk add --no-cache openssh-client
 RUN apk add --no-cache rsync
